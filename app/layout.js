@@ -111,6 +111,7 @@ export const viewport = {
 width: "device-width",
 initialScale: 1,
 themeColor: "#0a0a0a",
+viewportFit: "cover",
 };
 
 /* ================= ROOT LAYOUT ================= */
@@ -137,11 +138,11 @@ knowsAbout: [
 ],
 };
 
-return ( <html lang="en"> <head>
+return ( <html lang="en" suppressHydrationWarning> <head>
 {/* Manifest */} <link rel="manifest" href="/manifest.json" />
 
 ```
-    {/* Fonts optimization */}
+    {/* Font Optimization */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       rel="preconnect"
@@ -156,7 +157,9 @@ return ( <html lang="en"> <head>
     />
   </head>
 
-  <body className={`${geistMono.variable} antialiased bg-background text-foreground`}>
+  <body
+    className={`${geistMono.variable} antialiased bg-background text-foreground`}
+  >
     <Navigation />
 
     <main className="pt-16">{children}</main>
@@ -169,11 +172,12 @@ return ( <html lang="en"> <head>
 
     <Chatbot />
 
-    {/* Google Analytics (Replace with your ID) */}
+    {/* Google Analytics */}
     <Script
       strategy="afterInteractive"
-      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+      src="https://www.googletagmanager.com/gtag/js?id=G-N11LJW7FL"
     />
+
     <Script
       id="google-analytics"
       strategy="afterInteractive"
@@ -182,13 +186,14 @@ return ( <html lang="en"> <head>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-N11LJW7FL');
+          gtag('config', 'G-N11LJW7FL', {
+            page_path: window.location.pathname,
+          });
         `,
       }}
     />
   </body>
 </html>
-
 
 );
 }
