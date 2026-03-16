@@ -167,8 +167,8 @@ export default function Footer() {
             <span className="text-[var(--matrix-green)]">&gt;</span>
             Built with
             <span className="text-[var(--neon-red)]">❤</span>
-            and
-            <span className="text-[var(--matrix-green)]">Next.js</span>
+            by
+            <span className="text-[var(--matrix-green)]">Sambhav Mehra</span>
           </p>
         </div>
 
